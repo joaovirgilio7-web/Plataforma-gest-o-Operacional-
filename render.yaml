@@ -1,8 +1,7 @@
 services:
   - type: web
-    name: plataforma-praias
+    name: plataforma-gestao-operacional
     runtime: node
-    plan: starter
     buildCommand: npm install
     startCommand: npm start
     healthCheckPath: /healthz
@@ -10,12 +9,8 @@ services:
       - key: NODE_ENV
         value: production
       - key: DATA_DIR
-        value: /opt/render/project/src/data
+        value: ./data
       - key: SESSION_SECRET
         generateValue: true
       - key: NODE_VERSION
         value: 24
-    disk:
-      name: plataforma-praias-data
-      mountPath: /opt/render/project/src/data
-      sizeGB: 1
